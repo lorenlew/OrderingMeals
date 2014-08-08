@@ -57,8 +57,22 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Content\Scripts\_references.js" />
+    <Content Include="Content\Images\21766b7b144076801de5a1742cd8ef01.jpg" />
+    <Content Include="Content\Images\48e144bad6f3892699aad83ba4ebe7db.jpg" />
+    <Content Include="Content\Images\4d539ebdb1370-rez_27_109.jpg" />
+    <Content Include="Content\Images\chery-s-voronkoy.jpg" />
+    <Content Include="Content\Images\mosfoodnews.ru.jpg" />
+    <Content Include="Content\Images\shashlyk2.jpg" />
+    <Content Include="Content\Images\uslugi1000200.jpg" />
+    <Content Include="Content\Scripts\jquery.bpopup.min.js" />
+    <Content Include="Content\Scripts\jquery.easing.1.3.js" />
+    <Content Include="Content\Scripts\popUp.js" />
+    <Content Include="Content\Scripts\ViewModels\Dish.js" />
+    <Content Include="Content\Scripts\ViewModels\FoodService.js" />
     <Content Include="Content\Styles\bootstrap.united.css" />
     <Content Include="Content\Styles\bootstrap.united.min.css" />
+    <Content Include="Content\Styles\bpopup.css" />
     <Content Include="Content\Styles\site.css" />
     <Content Include="index.html" />
     <Content Include="packages.config" />

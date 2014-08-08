@@ -1,2 +1,26 @@
 ﻿body {
+    background-color: coral;
+}
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: azure;
+}
+
+.font-bordered {
+    color: #ffffff;
+    -ms-text-shadow: #000 2px 0px 2px, #000 0px 2px 2px, #000 0px -2px 2px, #000 -2px 0px 2px;
+    text-shadow: #000 2px 0px 2px, #000 0px 2px 2px, #000 0px -2px 2px, #000 -2px 0px 2px;
+}
+
+.img-content {
+    height: 50px;
+    border-radius: 20%;
+    display: block;
+    margin: 0 auto;
+}
+
+.fixed-cell {
+    width: 200px;
 }
