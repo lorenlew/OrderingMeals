@@ -1,11 +1,14 @@
 ﻿body {
     background-color: coral;
+    padding-top: 30px;
+    font-weight: 600;
 }
 
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
-    background-color: azure;
+    background-color: #f0ffff;
+    background-color: rgba(240, 255, 255, 0.7);
 }
 
 .font-bordered {
@@ -16,11 +19,35 @@
 
 .img-content {
     height: 50px;
-    border-radius: 20%;
+    border-radius: 60%;
     display: block;
     margin: 0 auto;
 }
 
 .fixed-cell {
     width: 200px;
+}
+
+.total-panel {
+    width: 380px;
+}
+
+.no-shadow {
+    text-shadow: none;
+}
+
+.selected {
+    background-color: #00ff00;
+    background-color: rgba(0, 255, 0, 0.44);
+}
+
+.ZenboxTabLeft {
+    position: fixed;
+    top: 30%;
+    left: 0;
+    width: 80px;
+}
+
+.glass {
+    opacity: 0.8;
 }

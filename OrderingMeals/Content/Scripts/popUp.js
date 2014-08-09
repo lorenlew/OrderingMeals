@@ -1,7 +1,8 @@
 ﻿function popUp(e) {
-    e.preventDefault();
+    'use strict';
 
-    $('#popUp').bPopup({
+    e.preventDefault();
+    jQuery('#popUp').bPopup({
         easing: 'easeOutBack',
         speed: 800,
         transition: 'slideDown'
