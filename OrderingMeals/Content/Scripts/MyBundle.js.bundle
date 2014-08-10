@@ -19,8 +19,7 @@
     <file>/Content/Scripts/popUp.js</file>
     <file>/Content/Scripts/popUpRegister.js</file>
     <file>/Content/Scripts/KnockoutStaff/CustomBindings.js</file>
-    <file>/Content/Scripts/KnockoutStaff/Dish.js</file>
     <file>/Content/Scripts/KnockoutStaff/FoodService.js</file>
-    <file>/Content/Scripts/KnockoutStaff/Order.js</file>
+    <file>/Content/Scripts/KnockoutStaff/app.js</file>
   </files>
 </bundle>

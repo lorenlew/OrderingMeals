@@ -16259,101 +16259,105 @@ function popUp(e) {
         }
     };
 })(jQuery);           
-///#source 1 1 /Content/Scripts/KnockoutStaff/Dish.js
-function Dish(id, name, discription, price, imagePath) {
-    'use strict';
-    var self = this;
-
-    self.id = ko.observable(id);
-    self.name = ko.observable(name);
-    self.discription = ko.observable(discription);
-    self.price = ko.observable(price);
-    self.imagePath = ko.observable(imagePath);
-}
-
 ///#source 1 1 /Content/Scripts/KnockoutStaff/FoodService.js
-function FoodServiceViewModel() {
+(function (koModels) {
     'use strict';
-    var self = this;
 
-    self.availableDishes = ko.observableArray([
-        new Dish(1, 'Lobster', 'nice', 234, 'Content/Images/21766b7b144076801de5a1742cd8ef01.jpg'),
-        new Dish(2, 'Stuffed cabbage', 'nice', 222, 'Content/Images/48e144bad6f3892699aad83ba4ebe7db.jpg'),
-        new Dish(3, ' Meat', 'nice', 455, 'Content/Images/4d539ebdb1370-rez_27_109.jpg'),
-        new Dish(4, 'Salad', 'nice', 110, 'Content/Images/chery-s-voronkoy.jpg'),
-        new Dish(5, 'Fish', 'nice', 140, 'Content/Images/mosfoodnews.ru.jpg'),
-        new Dish(6, 'Shish kebab', 'nice', 420, 'Content/Images/shashlyk2.jpg'),
-        new Dish(7, 'Sea snack', 'nice', 410, 'Content/Images/uslugi1000200.jpg')
-    ]);
+    koModels.FoodServiceViewModel = function () {
+        var self = this;
 
-    self.orders = ko.observableArray([]);
+        self.availableDishes = ko.observableArray([
+            new koModels.Dish(1, 'Lobster', 'nice', 234, 'Content/Images/21766b7b144076801de5a1742cd8ef01.jpg'),
+            new koModels.Dish(2, 'Stuffed cabbage', 'nice', 222, 'Content/Images/48e144bad6f3892699aad83ba4ebe7db.jpg'),
+            new koModels.Dish(3, ' Meat', 'nice', 455, 'Content/Images/4d539ebdb1370-rez_27_109.jpg'),
+            new koModels.Dish(4, 'Salad', 'nice', 110, 'Content/Images/chery-s-voronkoy.jpg'),
+            new koModels.Dish(5, 'Fish', 'nice', 140, 'Content/Images/mosfoodnews.ru.jpg'),
+            new koModels.Dish(6, 'Shish kebab', 'nice', 420, 'Content/Images/shashlyk2.jpg'),
+            new koModels.Dish(7, 'Sea snack', 'nice', 410, 'Content/Images/uslugi1000200.jpg')
+        ]);
 
-    self.totalSum = ko.computed(function () {
-        var total = 0;
-        if (self.orders().length !== 0) {
-            for (var i = 0; i < self.orders().length; i++) {
-                total += self.orders()[i].total();
+        self.orders = ko.observableArray([]);
+
+        self.totalSum = ko.computed(function () {
+            var total = 0;
+            if (self.orders().length !== 0) {
+                for (var i = 0; i < self.orders().length; i++) {
+                    total += self.orders()[i].total();
+                }
             }
-        }
-        return total;
-    });
-
-    self.addDishToOrder = function (dish) {
-        var orderWithDish = ko.utils.arrayFirst(self.orders(), function (order) {
-            return (dish === order.dish());
+            return total;
         });
-        if (orderWithDish) {
-            orderWithDish.amount(orderWithDish.amount() + 1);
-        } else {
-            self.orders.push(new Order(dish, 1));
-        }
-    };
 
-    self.removeDishFromOrder = function (dish) {
-        var orderWithDish = ko.utils.arrayFirst(self.orders(), function (order) {
-            return (dish === order.dish());
-        });
-        if (orderWithDish && orderWithDish.amount() > 1) {
-            orderWithDish.amount(orderWithDish.amount() - 1);
-        } else {
-            self.orders.remove(orderWithDish);
-        }
-    };
-
-    self.removeAll = function () {
-        self.orders.removeAll();
-    };
-
-    self.getNumberOfOrders = function (dish) {
-        var orderWithDish = ko.utils.arrayFirst(self.orders(), function (order) {
-            return (dish === order.dish());
-        });
-        if (orderWithDish) {
-            return orderWithDish.amount();
-        }
-        return 0;
-    };
-
-    self.getTotalNumberOfOrders = function () {
-        var total = 0;
-        if (self.orders().length !== 0) {
-            for (var i = 0; i < self.orders().length; i++) {
-                total += self.orders()[i].amount();
+        self.addDishToOrder = function (dish) {
+            var orderWithDish = ko.utils.arrayFirst(self.orders(), function (order) {
+                return (dish === order.dish());
+            });
+            if (orderWithDish) {
+                orderWithDish.amount(orderWithDish.amount() + 1);
+            } else {
+                self.orders.push(new koModels.Order(dish, 1));
             }
-        }
-        return total;
+        };
+
+        self.removeDishFromOrder = function (dish) {
+            var orderWithDish = ko.utils.arrayFirst(self.orders(), function (order) {
+                return (dish === order.dish());
+            });
+            if (orderWithDish && orderWithDish.amount() > 1) {
+                orderWithDish.amount(orderWithDish.amount() - 1);
+            } else {
+                self.orders.remove(orderWithDish);
+            }
+        };
+
+        self.removeAll = function () {
+            self.orders.removeAll();
+        };
+
+        self.getNumberOfOrders = function (dish) {
+            var orderWithDish = ko.utils.arrayFirst(self.orders(), function (order) {
+                return (dish === order.dish());
+            });
+            if (orderWithDish) {
+                return orderWithDish.amount();
+            }
+            return 0;
+        };
+
+        self.getTotalNumberOfOrders = function () {
+            var total = 0;
+            if (self.orders().length !== 0) {
+                for (var i = 0; i < self.orders().length; i++) {
+                    total += self.orders()[i].amount();
+                }
+            }
+            return total;
+        };
     };
-};
 
-ko.applyBindings(new FoodServiceViewModel());
-///#source 1 1 /Content/Scripts/KnockoutStaff/Order.js
-function Order(dish, amount) {
-    'use strict';
-    var self = this;
+    //ko.applyBindings(new this.FoodServiceViewModel());
 
-    self.dish = ko.observable(dish);
-    self.amount = ko.observable(amount);
-    self.total = ko.computed(function () {
-        return self.amount() * self.dish().price();
-    });
-}
+    koModels.Dish = function (id, name, description, price, imagePath) {
+        var self = this;
+
+        self.id = ko.observable(id);
+        self.name = ko.observable(name);
+        self.description = ko.observable(description);
+        self.price = ko.observable(price);
+        self.imagePath = ko.observable(imagePath);
+    };
+
+    koModels.Order = function (dish, amount) {
+        var self = this;
+
+        self.dish = ko.observable(dish);
+        self.amount = ko.observable(amount);
+        self.total = ko.computed(function () {
+            return self.amount() * self.dish().price();
+        });
+    };
+}(window.koModels = window.koModels || {}));
+///#source 1 1 /Content/Scripts/KnockoutStaff/app.js
+(function () {
+    ko.applyBindings(new koModels.FoodServiceViewModel());
+})();
