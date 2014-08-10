@@ -1,4 +1,4 @@
-OrderingMeals
+Ordering meals
 =============
 Knockout project
 
