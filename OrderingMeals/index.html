@@ -1,109 +1,109 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>
-        Ordering of dishes
-    </title>
-    <link href="Content/Styles/MyBundle.min.css" rel="stylesheet" />
+	<title>
+		Ordering of dishes
+	</title>
+	<link href="Content/Styles/MyBundle.min.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="container body-content modal-content font-bordered">
-        <header>
-            <h1 class="well well-lg text-center text-warning glass">
-                Best dishes than ever.
-            </h1>
-        </header>
-        <div id="popUp" class="hide">
-            <span class="button b-close"><span>X</span></span>
-            <h2 class="text-center">
-                Order.
-            </h2>
-            <table class="table table-hover table-responsive table-condensed table-bordered tab-content text-center">
-                <thead>
-                    <tr>
-                        <th>
-                            Name
-                        </th>
-                        <th>
-                            Price
-                        </th>
-                        <th>
-                            Amount
-                        </th>
-                        <th>
-                            Total
-                        </th>
-                    </tr>
-                </thead>
-                <tbody data-bind="foreach: orders">
-                    <tr>
-                        <td data-bind="text: dish().name"></td>
-                        <td data-bind="text: dish().price"></td>
-                        <td data-bind="text: amount()"></td>
-                        <td data-bind="text: total()"></td>
-                    </tr>
-                </tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td data-bind="text: totalSum()"></td>
-                    <td class="fa fa-usd"></td>
-                </tr>
-            </table>
-            <button class="btn btn-success b-close"><span>Ok</span></button>
-        </div>
+	<div class="container body-content modal-content font-bordered">
+		<header>
+			<h1 class="well well-lg text-center text-warning glass">
+				Best dishes than ever.
+			</h1>
+		</header>
+		<div id="popUp" class="hide">
+			<span class="button b-close"><span>X</span></span>
+			<h2 class="text-center">
+				Order.
+			</h2>
+			<table class="table table-hover table-responsive table-condensed table-bordered tab-content text-center">
+				<thead>
+					<tr>
+						<th>
+							Name
+						</th>
+						<th>
+							Price
+						</th>
+						<th>
+							Amount
+						</th>
+						<th>
+							Total
+						</th>
+					</tr>
+				</thead>
+				<tbody data-bind="foreach: orders">
+					<tr>
+						<td data-bind="text: dish().name"></td>
+						<td data-bind="text: dish().price"></td>
+						<td data-bind="text: amount()"></td>
+						<td data-bind="text: total()"></td>
+					</tr>
+				</tbody>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td data-bind="text: totalSum()"></td>
+					<td class="fa fa-usd"></td>
+				</tr>
+			</table>
+			<button class="btn btn-success b-close"><span>Ok</span></button>
+		</div>
 
-        <div id="total" data-bind="slideVisible: totalSum() > 0,
-                                   slideDuration:1000" class="modal-content ZenboxTabLeft text-center row">
-            <span data-bind="text: totalSum()" class="col-lg-offset-1"></span>
-            <div class="col-lg-offset-1 fa fa-usd"></div>
-            <button id="makeOrder" class="btn btn-success fa fa-2x fa-check-circle-o col-lg-offset-1" title="See total"></button>
-            <button data-bind="click: $root.removeAll" class="btn btn-danger fa fa-2x fa-trash-o col-lg-offset-1" title="Remove all"></button>
-            <span data-bind="text: $root.getTotalNumberOfOrders()" class="text-success btn disabled col-lg-offset-1 no-shadow" title="Number of dishes"></span>
-        </div>
-        <span data-bind="fadeVisible: $root.getTotalNumberOfOrders() === 10" class="text-danger no-shadow">Max limit of dishes to order.</span>
+		<div id="total" data-bind="slideVisible: totalSum() > 0,
+								   slideDuration:1000" class="modal-content ZenboxTabLeft text-center row" style="display: none;">
+			<span data-bind="text: totalSum()" class="col-lg-offset-1"></span>
+			<div class="col-lg-offset-1 fa fa-usd"></div>
+			<button id="makeOrder" class="btn btn-success fa fa-2x fa-check-circle-o col-lg-offset-1" title="See total"></button>
+			<button data-bind="click: $root.removeAll" class="btn btn-danger fa fa-2x fa-trash-o col-lg-offset-1" title="Remove all"></button>
+			<span data-bind="text: $root.getTotalNumberOfOrders()" class="text-success btn disabled col-lg-offset-1 no-shadow" title="Number of dishes"></span>
+		</div>
+		<span data-bind="fadeVisible: $root.getTotalNumberOfOrders() === 10" class="text-danger no-shadow">Max limit of dishes to order.</span>
 
-        <table class="table table-hover table-responsive table-condensed table-bordered tab-content text-center">
-            <thead>
-                <tr>
-                    <th class="fixed-cell">
-                    </th>
-                    <th class="fixed-cell">
-                        Name
-                    </th>
-                    <th>
-                        Description
-                    </th>
-                    <th class="fixed-cell">
-                        Price
-                    </th>
-                    <th class="fixed-cell">
-                    </th>
-                </tr>
-            </thead>
-            <tbody data-bind="foreach: availableDishes" class="no-shadow">
-                <tr data-bind="css: { selected: $root.getNumberOfOrders($data) > 0}">
-                    <td title="Order">
-                        <button data-bind="click: $root.addDishToOrder,
-                                           enable: $root.getTotalNumberOfOrders() < 10" class="btn btn-success fa fa-2x fa-cutlery"></button>
-                        <span data-bind="text: $root.getNumberOfOrders($data)" class="text-success btn disabled"></span>
-                        <button data-bind="click: $root.removeDishFromOrder,
-                                           enable: $root.getNumberOfOrders($data) > 0" class="btn btn-danger fa fa-2x fa-trash-o"></button>
-                    </td>
-                    <td data-bind="text: name" class="text-primary"></td>
-                    <td data-bind="text: description" class="text-primary"></td>
-                    <td data-bind="text: price" class="text-danger"></td>
-                    <td>
-                        <a data-bind="attr:{ href: imagePath}" data-lightbox="img">
-                            <img data-bind="attr:{ src: imagePath}" class="img-content" />
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+		<table class="table table-hover table-responsive table-condensed table-bordered tab-content text-center">
+			<thead>
+				<tr>
+					<th class="fixed-cell">
+					</th>
+					<th class="fixed-cell">
+						Name
+					</th>
+					<th>
+						Description
+					</th>
+					<th class="fixed-cell">
+						Price
+					</th>
+					<th class="fixed-cell">
+					</th>
+				</tr>
+			</thead>
+			<tbody data-bind="foreach: availableDishes" class="no-shadow">
+				<tr data-bind="css: { selected: $root.getNumberOfOrders($data) > 0}">
+					<td title="Order">
+						<button data-bind="click: $root.addDishToOrder,
+										   enable: $root.getTotalNumberOfOrders() < 10" class="btn btn-success fa fa-2x fa-cutlery"></button>
+						<span data-bind="text: $root.getNumberOfOrders($data)" class="text-success btn disabled"></span>
+						<button data-bind="click: $root.removeDishFromOrder,
+										   enable: $root.getNumberOfOrders($data) > 0" class="btn btn-danger fa fa-2x fa-trash-o"></button>
+					</td>
+					<td data-bind="text: name" class="text-primary"></td>
+					<td data-bind="text: description" class="text-primary"></td>
+					<td data-bind="text: price" class="text-danger"></td>
+					<td>
+						<a data-bind="attr:{ href: imagePath}" data-lightbox="img">
+							<img data-bind="attr:{ src: imagePath}" class="img-content" />
+						</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 
-    <script type="text/javascript" src="Content/Scripts/MyBundle.min.js"> </script>
+	<script type="text/javascript" src="Content/Scripts/MyBundle.min.js"> </script>
 </body>
 </html>
