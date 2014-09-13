@@ -11,6 +11,6 @@ Obligatory elements of realization:
 - Applying the user type binding (custom bindings).
 
 ------------------------------------------------------------------------------------------------------
-Technology stack: javascript (knockout.js), html5, css3 (twitter bootstrap). 
+Technology stack: javascript (knockout.js, jquery.js), html5, css3 (twitter bootstrap). 
 
 http://lorenlew.github.io/OrderingMeals/OrderingMeals/index.html
