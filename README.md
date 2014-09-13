@@ -9,6 +9,7 @@ That is estimated: the understanding of the principle of a template of developme
 Obligatory elements of realization:
 
 Applying at least once the calculated properties (computed properties).
+
 Applying the user type binding (custom bindings).
 
 ------------------------------------------------------------------------------------------------------
