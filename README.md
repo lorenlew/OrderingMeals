@@ -10,6 +10,7 @@ Obligatory elements of realization:
 
 Applying at least once the calculated properties (computed properties)
 Applying the user type binding (custom bindings)
+
 ------------------------------------------------------------------------------------------------------
 Technology stack: javascript, html5, css3, knockout.js
 
