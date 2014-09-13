@@ -13,6 +13,6 @@ Applying at least once the calculated properties (computed properties).
 Applying the user type binding (custom bindings).
 
 ------------------------------------------------------------------------------------------------------
-Technology stack: javascript, html5, css3, knockout.js
+Technology stack: javascript(knockout.js), html5, css3. 
 
 http://lorenlew.github.io/OrderingMeals/OrderingMeals/index.html
