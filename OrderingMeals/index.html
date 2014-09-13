@@ -55,14 +55,14 @@
 		</div>
 
 		<div id="total" data-bind="slideVisible: totalSum() > 0,
-								   slideDuration:1000" class="modal-content ZenboxTabLeft text-center row" style="display: none;">
+								   slideDuration:1000" class="modal-content ZenboxTabLeft text-center row" style="display: none">
 			<span data-bind="text: totalSum()" class="col-lg-offset-1"></span>
 			<div class="col-lg-offset-1 fa fa-usd"></div>
 			<button id="makeOrder" class="btn btn-success fa fa-2x fa-check-circle-o col-lg-offset-1" title="See total"></button>
 			<button data-bind="click: $root.removeAll" class="btn btn-danger fa fa-2x fa-trash-o col-lg-offset-1" title="Remove all"></button>
 			<span data-bind="text: $root.getTotalNumberOfOrders()" class="text-success btn disabled col-lg-offset-1 no-shadow" title="Number of dishes"></span>
 		</div>
-		<span data-bind="fadeVisible: $root.getTotalNumberOfOrders() === 10" class="text-danger no-shadow">Max limit of dishes to order.</span>
+		<span data-bind="fadeVisible: $root.getTotalNumberOfOrders() === 10" class="text-danger no-shadow" style="display: none">Max limit of dishes to order.</span>
 
 		<table class="table table-hover table-responsive table-condensed table-bordered tab-content text-center">
 			<thead>
