@@ -6,9 +6,9 @@ Develop the application, which allows to make a lunch of multiple dishes, thus t
 
 That is estimated: the understanding of the principle of a template of development of MVVM, the ability to correct structure a code in the terms of MVVM, the optimum use of opportunities of Knockout, the design of UI shouldn't cause rejection, but at the same time you shouldn't concentrate on it too much.
 
-Obligatory elements of realization:
+Obligatory elements of realization:/n
 
-Applying at least once the calculated properties (computed properties)
+Applying at least once the calculated properties (computed properties)/n
 Applying the user type binding (custom bindings)
 
 ------------------------------------------------------------------------------------------------------
